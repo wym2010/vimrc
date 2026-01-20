@@ -631,18 +631,31 @@ require("blink.cmp").setup(
         ['<Tab>'] = {function(cmp)
             local line, col = unpack(vim.api.nvim_win_get_cursor(0))
             if (cmp.snippet_active()) then
-                return cmp.hide()
-            else
-                if (col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil) then
-                    cmp.show({providers = { 'lsp', 'path', 'snippets', 'buffer' }})
-                    cmp.show_documentation()
+                if (cmp.is_menu_visible()) then
+                    return cmp.select_next()
                 else
-                    return '\t'
+                    return cmp.hide()
+                end
+            else
+                if (cmp.is_menu_visible()) then
+                    return cmp.select_next()
+                else
+                    if (col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil) then
+                        cmp.show({providers = { 'lsp', 'path', 'snippets', 'buffer' }})
+                        cmp.show_documentation()
+						return
+                    else
+                        return '\t'
+                    end
                 end
             end
 
         end, 'snippet_forward'},
-        ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+        ['<S-Tab>'] = { function(cmp)
+            if (cmp.is_menu_visible()) then
+                return cmp.select_prev()
+            end
+        end, 'snippet_backward', },
         ['<C-k>'] = { 'show_signature'},
         ['<C-space>'] = { function(cmp)
             cmp.show({providers = { 'lsp', 'path', 'snippets', 'buffer' }})
