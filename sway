@@ -246,3 +246,5 @@ set $GLFW_IM_MODULE fcitx5
 
 # 自启 fcitx5
 exec_always --no-startup-id fcitx5 -d 2>/dev/null
+workspace_layout tabbed
+focus_wrapping workspace
