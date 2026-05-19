@@ -91,7 +91,8 @@ install_i3() {
 install_sway() {
     mkdir -p ~/.config/sway
     cp sway ~/.config/sway/config
-    apt install wl-clipboard
+    sudo dnf install sway wl-clipboard pactl brightnessctl blueman
+    # sudo apt install wl-clipboard pactl brightnessctl blueman
 }
 
 install_jdtls() {
