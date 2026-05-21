@@ -91,7 +91,14 @@ install_i3() {
 install_sway() {
     mkdir -p ~/.config/sway
     cp sway ~/.config/sway/config
-    sudo dnf install sway wl-clipboard pactl brightnessctl blueman
+    cp screenshot.sh ~/.config/sway/
+    cp waybar/screencast.sh ~/.config/sway/
+    mkdir -p ~/.config/waybar
+    cp waybar/config.jsonc ~/.config/waybar/
+    cp waybar/style.css ~/.config/waybar/
+    cp waybar/screencast.sh ~/.config/waybar/
+    chmod +x ~/.config/waybar/screencast.sh ~/.config/sway/screencast.sh ~/.config/sway/screenshot.sh
+    sudo dnf install sway wl-clipboard pactl brightnessctl blueman slurp wf-recorder
     # sudo apt install wl-clipboard pactl brightnessctl blueman
 }
 
