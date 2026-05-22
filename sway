@@ -157,6 +157,7 @@ include /etc/sway/config-vars.d/*
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
 
+
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
 
@@ -212,10 +213,8 @@ bindsym $mod+r mode "resize"
     # Special keys to adjust brightness via brightnessctl
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-    # Special keys for screenshot & screencast
-    bindsym Print exec $HOME/.config/sway/screenshot.sh full
-    bindsym Shift+Print exec $HOME/.config/sway/screenshot.sh
-    bindsym Ctrl+Print exec $HOME/.config/sway/screencast.sh
+    # Special key to take a screenshot with grim
+    bindsym Print exec grim
 
 #
 # Status Bar:
