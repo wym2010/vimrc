@@ -98,7 +98,7 @@ install_sway() {
     cp waybar/style.css ~/.config/waybar/
     cp waybar/screencast.sh ~/.config/waybar/
     chmod +x ~/.config/waybar/screencast.sh ~/.config/sway/screencast.sh ~/.config/sway/screenshot.sh
-    sudo dnf install sway wl-clipboard pactl brightnessctl blueman slurp wf-recorder
+    sudo dnf install sway wl-clipboard pactl brightnessctl blueman slurp wf-recorder swayidle swaylock
     # sudo apt install wl-clipboard pactl brightnessctl blueman
 }
 

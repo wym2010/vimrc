@@ -251,3 +251,8 @@ workspace_layout tabbed
 focus_wrapping workspace
 font "pango:monospace 1"
 titlebar_padding 1
+exec swayidle -w \
+  timeout 300 'swaymsg "output * dpms off"' \
+  resume 'swaymsg "output * dpms on"' \
+  timeout 600 'swaylock' \
+  timeout 900 'systemctl suspend'
