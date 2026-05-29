@@ -254,4 +254,12 @@ titlebar_padding 1
 # Lock & Hibernate
 exec_always swayidle -w \
     timeout 300 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on" && swaylock' &
+    timeout 300 'swaylock -f -c 000000 &' \
+    resume 'swaymsg "output * dpms on"' &
+# exec_always swayidle -w \
+#     timeout 300 'swaylock && swaymsg "output * dpms off"' \
+#     resume 'swaymsg "output * dpms on"' &
+# exec_always swayidle \
+#     timeout 300 'swaylock -f -c 000000 &' \
+#     timeout 330 'swaymsg "output * dpms off"' \
+#     resume 'swaymsg "output * dpms on"' &
