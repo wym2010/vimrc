@@ -1,0 +1,1 @@
+Exec=env GTK_IM_MODULE=fcitx QT_IM_MODULE=fcitx /usr/bin/wechat %U
